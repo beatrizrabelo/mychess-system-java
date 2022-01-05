@@ -1,5 +1,5 @@
 
-package applicatiion;
+package application;
 
 import chess.ChessMatch;
 
