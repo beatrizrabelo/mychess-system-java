@@ -26,41 +26,50 @@ public class ChessMatch {
         }
         return mat;
     }
-    
+
     //mover a peça de sua posição de origem para posição de destino:
-    public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition){
+    public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
         Position source = sourcePosition.toPosition();
         Position target = targetPosition.toPosition();
-        
+
         //validação da peça na posição de origem
-        validateSourcePosition(source); 
+        validateSourcePosition(source);
+
+        //validação da peça na posição de destino
+        validateTargetPosition(source, target);
         
         //resultado da operação makeMove (método p/ realizar o movimento da peça)
         Piece capturedPiece = makeMove(source, target);
         return (ChessPiece) capturedPiece;
     }
-    
-    private Piece makeMove(Position source, Position target){
+
+    private Piece makeMove(Position source, Position target) {
         Piece p = board.removePiece(source);
         Piece capturedPiece = board.removePiece(target);
         board.placePiece(p, target);
         return capturedPiece;
     }
-    
-    private void validateSourcePosition (Position position){
-        if (!board.thereIsAPiece(position)){
-            throw new ChessException("There is no piece on source position"); 
+
+    private void validateSourcePosition(Position position) {
+        if (!board.thereIsAPiece(position)) {
+            throw new ChessException("There is no piece on source position");
         }
-        if (!board.piece(position).isThereAnyPossibleMove()){
+        if (!board.piece(position).isThereAnyPossibleMove()) {
             throw new ChessException("There is no possible moves for the chosen piece");
         }
     }
     
-    private void placeNewPiece (char column, int row, ChessPiece piece){
-        board.placePiece(piece, new ChessPosition (column, row).toPosition());
+    private void validateTargetPosition(Position source, Position target){
+        if (!board.piece(source).possibleMove(target)){
+            throw new ChessException ("The chosen piece can't move to target position");
+        }
     }
-    
-    private void initialSetup(){
+
+    private void placeNewPiece(char column, int row, ChessPiece piece) {
+        board.placePiece(piece, new ChessPosition(column, row).toPosition());
+    }
+
+    private void initialSetup() {
         placeNewPiece('c', 1, new Rook(Color.WHITE, board));
         placeNewPiece('c', 2, new Rook(Color.WHITE, board));
         placeNewPiece('d', 2, new Rook(Color.WHITE, board));

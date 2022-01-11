@@ -10,10 +10,6 @@ public class King extends ChessPiece {
         super(color, board);
     }
 
-    public King(Board board, Color color) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-
     @Override
     public String toString() {
         return "K";
