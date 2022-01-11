@@ -11,11 +11,17 @@ public class King extends ChessPiece {
     }
 
     public King(Board board, Color color) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return "K";
+    }
+
+    @Override
+    public boolean[][] possibleMoves() {
+        boolean [][] mat = new boolean [getBoard().getRows()][getBoard().getColumns()];
+        return mat;
     }
 }

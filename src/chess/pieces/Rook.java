@@ -11,11 +11,17 @@ public class Rook extends ChessPiece{
     }
 
     public Rook(Board board, Color color) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
     
     @Override
     public String toString(){
         return "R";
+    }
+    
+    @Override
+    public boolean[][] possibleMoves() {
+        boolean [][] mat = new boolean [getBoard().getRows()][getBoard().getColumns()];
+        return mat;
     }
 }
