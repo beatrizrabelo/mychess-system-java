@@ -5,6 +5,8 @@
         <group>
             <file>file:/C:/Java/chess-system/src/chess/ChessPiece.java</file>
             <file>file:/C:/Java/chess-system/src/application/Program.java</file>
+            <file>file:/C:/Java/chess-system/src/chess/pieces/Pawn.java</file>
+            <file>file:/C:/Java/chess-system/src/chess/pieces/Rook.java</file>
             <file>file:/C:/Java/chess-system/src/application/UI.java</file>
             <file>file:/C:/Java/chess-system/src/chess/ChessMatch.java</file>
         </group>
